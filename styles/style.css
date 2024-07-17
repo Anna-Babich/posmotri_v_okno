@@ -9,6 +9,7 @@ html {
 }
 
 .page {
+  display: flex;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -38,61 +39,240 @@ ol {
   list-style: none;
 }
 
-.page {
-  display: grid;
-  place-content: center;
-  
-}
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
 
 .content {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  
-  
-  height: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  
+display: flex;
+margin: auto;
+gap: 30px;
+min-width: 1140px;
+min-height: 533px;
 }
 
 .result {
-  width: 741px;
-  
+  align-self: flex-end;
 }
 
 .result__video-container {
-  width: 711px;
-  height: 386px;
-  
+  position: relative;
+  margin-bottom: 16px;
 }
 
 .result__video {
   object-fit: cover;
-  padding-bottom: 20px;
-  min-width: 100%;
-  max-height: 100%;
-  /* min-width: 100%;
-  min-height: 100%; */
+  width: 711px;
+  height: 386px;
 }
 
 .search-form {
   display: flex;
-  
-  
+  justify-content: space-between;
+  padding-bottom: 2px;
 }
+
+.search-form__fieldset {
+  cursor: pointer;
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+
+  margin-bottom: 6px;
+}
+
+.search-form__label {
+  display: flex;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+}
+
+.search-form__label-text {
+  align-self: center;
+  margin-left: 5px;
+}
+
+.search-form__textfield {
+  font-family: 'Fira Sans Condensed';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  width: 225px;
+  height: 27px;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  appearance: none;
+  color: rgb(225, 225, 225, 0.7);
+  padding: 0;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+  outline-color: transparent;
+}
+
+.search-form__checkbox-list {
+  width: 212px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+}
+
+input[type="checkbox"]:checked + span::before {
+  content: '';
+  display: block;
+  margin: 1px 1px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__fieldset:nth-child(2) .search-form__label:hover {
+  text-decoration: underline;
+}
+
+
+.button {
+  font-family: 'Fira Sans Condensed';  
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+  outline-color: transparent;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus-visible {
+  outline-color: #fff;
+  outline-style: solid;
+  outline-width: 0.1em;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  width: 194px; 
+  height: 34px;
+}
+  
 
 .content__details {
   width: 399px;
-  
 }
 
 .title {
- 
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-size: 75px; 
+  font-weight: 700;
+  line-height: 70.5px;
+  margin-bottom: 16px;
+}
+
+.content__accent {
+  color: #545050;
 }
 
 .content__list {
-  min-width: 399px;
+  position: relative;
   height: 298px;
   overflow: hidden scroll;
+}
+
+.content__list::-webkit-scrollbar {
+  width: 0;
+}
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  margin: 3px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card {
+  width: 394px;
+  min-height: 107px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+}
+
+.content__video-card-description-container {
+  padding-left: 2px;
+}
+
+.content__video-card-title {
+  font-family: 'Oswald';
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.2px;
+}
+
+.content__video-card-thumbnail{
+  object-fit: cover;
+  align-self: center;
+  width: 194px;
+  height: 103px;
+}
+
+.content__list-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.more-button {
+  width: 399px;
+  height: 34px;
 }
